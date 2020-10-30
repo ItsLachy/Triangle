@@ -16,5 +16,3 @@ if (Config.sentryUrl) {
         tracesSampleRate: 1.0,
     });
 }
-
-throw new Error('Test Error');
