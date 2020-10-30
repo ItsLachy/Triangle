@@ -1,7 +1,0 @@
-{
-    "discordTokens": {
-        "production": "NzYwNjg2NDI0MTAxNDg2NjIy.X3PqcA.ISCK8JLerJsXYrzqc79cC6ZmP7k",
-        "development": "NzYwNjQ1ODIwODEwNTI2Nzkx.X3PEnw.fMFyY1baa-GKarbI1EZszWHLmwA"
-    },
-    "sentryUrl": "https://4889b63707554c5eb41a1eb657e2d949@o435898.ingest.sentry.io/5498470"
-}
