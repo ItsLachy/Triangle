@@ -8,12 +8,17 @@
   "license": "gpl-3.0-only",
   "private": true,
   "scripts": {
+    "docker:build": "docker-compose build",
+    "docker:up": "docker-compose up -d",
+    "docker:test": "docker-compose up",
+    "docker:down": "docker-compose down",
     "lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
     "build": "tsc -b",
     "start": "node dist/Triangle.js",
     "dev": "yarn build && yarn start"
   },
   "devDependencies": {
+    "@types/bunyan": "^1.8.6",
     "@types/node": "^14.14.6",
     "@typescript-eslint/eslint-plugin": "^4.6.0",
     "@typescript-eslint/parser": "^4.6.0",
@@ -25,6 +30,8 @@
   },
   "dependencies": {
     "@sentry/node": "^5.27.2",
-    "@sentry/tracing": "^5.27.2"
+    "@sentry/tracing": "^5.27.2",
+    "bunyan": "^1.8.14",
+    "discord.js": "^12.4.1"
   }
 }

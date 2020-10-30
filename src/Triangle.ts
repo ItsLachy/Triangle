@@ -1,6 +1,8 @@
 import * as Sentry from '@sentry/node';
-
+import { TriangleClient } from './lib/TriangleClient';
 import Config from './config.json';
+
+const Client: TriangleClient = new TriangleClient();
 
 if (Config.sentryUrl) {
     Sentry.init({
@@ -13,6 +15,7 @@ if (Config.sentryUrl) {
             new Sentry.Integrations.LinkedErrors(),
             new Sentry.Integrations.Console(),
         ],
-        tracesSampleRate: 1.0,
     });
 }
+
+Client.login(process.env.PRODUCTION ? Config.discordTokens.production : Config.discordTokens.development);
