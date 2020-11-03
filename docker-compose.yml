@@ -1,5 +1,5 @@
 version: "3.8"
 services:
 
-    triangle:
-        build: .
+    triangle: 
+        image: docker.pkg.github.com/triangle-project/triangle/triangle
