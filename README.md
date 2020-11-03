@@ -7,13 +7,13 @@ Multi-purpose Discord bot
 
 ## Reporting bugs & vulnerabilities
 
-Most issues can be reported by either [opening an issue](https://github.com/triangle-project/triangle/issues/new) or in the [`#support` channel on Discord](https://discord.gg/ZfsRkQZ6PV). However, if you find a vulnerability that be exploited in any way/shape/form, please reach out to me on Discord (`Eton#4446`).
+Most issues can be reported by either [opening an issue](https://github.com/triangle-project/triangle/issues/new) or in the [`#support` channel on Discord](https://discord.gg/ZfsRkQZ6PV). However, if you find a vulnerability that is exploitable in any way/shape/form, please reach out to me directly on Discord (`Eton#4446`).
 
 ## Selfhosting
 
 Triangle is designed to be easily scalable, as such it is designed to be run inside of a [Docker](https://docker.com) container. It can be run without docker but we strongly recommend against it. Additionally, this means you **will not be able to host Triangle on services such as Glitch or Heroku.**
 
-With that out of the way, we can now get into the steps of actually selfhosting Triangle for yourself. This guide will not go over how to setup a server or docker and presumes that these things are setup already.
+With that out of the way, we can now get into the steps of actually self-hosting Triangle for yourself. This guide will not go over how to setup a server or docker and presumes that these things are setup already.
 
 If you run into any issues, don't hesitate to open an [issue](https://github.com/triangle-project/triangle/issues/new).
 
@@ -27,7 +27,7 @@ sudo docker pull docker.pkg.github.com/triangle-project/triangle/triangle:0.0.0
 ```
 
 ### 3.1. Running the image with Docker
-This is the normal way you would run a Docker container, however we recommend that you use [Docker-Compose](#3.2.-Running-the-image-with-Docker-Compose) to run Triangle.
+This is the normal way you would run a Docker container, however, we recommend that you use [Docker-Compose](#3.2.-Running-the-image-with-Docker-Compose) to run Triangle.
 
 ```bash
 sudo docker run -d --name Triangle \
@@ -60,7 +60,7 @@ If you are running Triangle with Docker Compose, updating is much simpler. First
 sudo docker-compose down
 ```
 
-Next, download the new `docker-compose.yml` from the latest release and replace your current file. Make sure to replace any fields that you moddified in the new file. Then just bring everything back up.
+Next, download the new `docker-compose.yml` from the latest release and replace your current file. Make sure to replace any fields that you modified in the new file. Then just bring everything back up.
 ```bash
 sudo docker-compose up -d
 ```
