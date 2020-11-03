@@ -1,3 +1,5 @@
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+require('dotenv').config();
 import * as Sentry from '@sentry/node';
 import { TriangleClient } from './lib/TriangleClient';
 
