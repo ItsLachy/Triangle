@@ -1,12 +1,11 @@
 import * as Sentry from '@sentry/node';
 import { TriangleClient } from './lib/TriangleClient';
-import Config from './config.json';
 
 const Client: TriangleClient = new TriangleClient();
 
-if (Config.sentryUrl) {
+if (process.env.SENTRY_URL && process.env.PRODUCTION) {
     Sentry.init({
-        dsn: Config.sentryUrl,
+        dsn: process.env.SENTRY_URL,
         release: 'Triangle@' + process.env.npm_package_version,
         environment: process.env.PRODUCTION ? 'production' : 'development',
         integrations: [
@@ -18,4 +17,4 @@ if (Config.sentryUrl) {
     });
 }
 
-Client.login(process.env.PRODUCTION ? Config.discordTokens.production : Config.discordTokens.development);
+Client.login(process.env.PRODUCTION ? process.env.DISCORD_PRODUCTION : process.env.DISCORD_DEV);
