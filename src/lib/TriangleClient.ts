@@ -30,9 +30,8 @@ export class TriangleClient extends Discord.Client {
             const args: string[] = message.content.slice(this.prefix.length).trim().split(/ +/);
             const commandName: string = args.shift()!.toLowerCase();
 
-            if (!this.commands.has(commandName)) return;
-
-            const command: TriangleCommand | undefined = this.commands.get(commandName);
+            const command: TriangleCommand | undefined =
+                this.commands.get(commandName) || this.commands.find((cmd) => cmd.getAliases().includes(commandName));
 
             try {
                 await command!.execute(message, args);
@@ -43,13 +42,15 @@ export class TriangleClient extends Discord.Client {
                     scope.setTag('guild', message.guild!.id);
                     scope.setTag('command', commandName);
                     scope.setTag('errorId', errorId);
-                    scope.setUser({ id: message.author.id, username: message.author.tag }),
-                        Sentry.captureException(err);
+                    scope.setUser({ id: message.author.id, username: message.author.tag });
+                    Sentry.captureException(err);
                 });
 
                 log.warn(
                     `${message.author.tag} (${message.author.id}) Command Execute Failed -> ${commandName} [${args}]`,
                 );
+
+                if (!process.env.PRODUCTION) console.error(err);
 
                 const embed = new Discord.MessageEmbed()
                     .setColor('RED')
